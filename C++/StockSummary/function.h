@@ -4,6 +4,8 @@
 std::string stockSummary(std::vector<std::string> &lstOfArt, std::vector<std::string> &categories)
 {
     std::string output = "";
+    if (lstOfArt.size() == 0 || categories.size() == 0)
+        return output;
     //output += "(A : 200) - (B : 1140)\n";
     //traverse the list of categories
     for (int i = 0; i < categories.size(); i++)
@@ -23,18 +25,15 @@ std::string stockSummary(std::vector<std::string> &lstOfArt, std::vector<std::st
                 sum += std::stoi(token);
             }   
         }
-        if (sum != 0)
+        output += "(";
+        output += categories[i][0];
+        output += " : ";
+        output += std::to_string(sum);
+        output += ")";
+        //if i is not the last category
+        if (i < categories.size() - 1)
         {
-            output += "(";
-            output += categories[i][0];
-            output += " : ";
-            output += std::to_string(sum);
-            output += ")";
-            //if i is not the last category
-            if (i < categories.size() - 1)
-            {
-                output += " - ";
-            }
+            output += " - ";
         }
     }
 
