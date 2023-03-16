@@ -1,2 +1,2 @@
 # kata
-Code from Training at codewars.com
+Code from training at codewars.com
